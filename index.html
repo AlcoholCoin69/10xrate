@@ -116,8 +116,8 @@
       width: 100%;
     }
 
-    /* Mobile & Tablets (including all iPads in portrait/landscape up to 1199px) */
-    @media (max-width: 1199px), (max-height: 799px) {
+    /* Mobile & Compact Screens (phones and narrow screens up to 1023px) */
+    @media (max-width: 1023px) {
       .slide {
         justify-content: flex-start !important;
         padding-top: 5.75rem !important;
@@ -128,6 +128,21 @@
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         justify-content: flex-start !important;
+      }
+    }
+
+    /* Tablets in Landscape, iPad Pro & Desktops (width >= 1024px and height >= 700px): Centered Presentation */
+    @media (min-width: 1024px) and (min-height: 700px) {
+      .slide {
+        justify-content: flex-start !important;
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.75rem !important;
+      }
+      .slide > div:first-child {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+        justify-content: flex-start !important;
+        padding-bottom: 0 !important;
       }
     }
 
@@ -190,11 +205,11 @@
       }
     }
 
-    /* Desktop (>= 1200px width and >= 800px height): Vertically Centered Presentation */
-    @media (min-width: 1200px) and (min-height: 800px) {
+    /* Desktop & Large Displays (>= 1200px width and >= 700px height) */
+    @media (min-width: 1200px) and (min-height: 700px) {
       .slide {
         justify-content: flex-start !important;
-        padding-top: 4rem !important;
+        padding-top: 4.25rem !important;
         padding-bottom: 4.5rem !important;
       }
       .slide > div:first-child {
@@ -205,8 +220,8 @@
       }
     }
 
-    /* Landscape Tablets & Compact Height Screens (min-width: 641px and max-height: 820px) */
-    @media (min-width: 641px) and (max-height: 820px) {
+    /* Compact Landscape Phones & Small Tablets (width 641px..1023px and max-height: 700px) */
+    @media (min-width: 641px) and (max-width: 1023px) and (max-height: 700px) {
       .slide {
         padding-top: 4.25rem !important;
         padding-bottom: 6rem !important;
@@ -311,6 +326,26 @@
   <link rel="stylesheet" href="assets/app.css">
 </head>
 <body class="bg-app-bg text-white antialiased selection:bg-[#1877f2] selection:text-white">
+  <!-- Preloader Screen (10Xrate Style) -->
+  <div id="sitePreloader" style="position:fixed;inset:0;z-index:9999;background:#08080a;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.4s ease,visibility 0.4s ease;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1.25rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <img src="assets/logo.webp" alt="10Xrate" style="height:44px;width:auto;object-fit:contain;" onerror="this.style.display='none';document.getElementById('preloadFallbackText').style.display='block';">
+        <span id="preloadFallbackText" style="display:none;font-weight:900;font-size:1.75rem;letter-spacing:-0.03em;color:#0088ff;">10XRATE</span>
+      </div>
+      <div style="width:160px;height:3px;background:rgba(255,255,255,0.08);border-radius:9999px;overflow:hidden;position:relative;">
+        <div id="preloaderBar" style="position:absolute;top:0;left:0;height:100%;width:35%;background:linear-gradient(90deg,#0088ff,#2c84fa);border-radius:9999px;animation:preloaderSlide 1.2s infinite ease-in-out;"></div>
+      </div>
+    </div>
+  </div>
+  <style>
+    @keyframes preloaderSlide {
+      0% { left: -35%; width: 35%; }
+      50% { left: 40%; width: 50%; }
+      100% { left: 100%; width: 35%; }
+    }
+  </style>
+
   <!-- Ambient background glow orbs -->
   <div id="ambient-glow-orbs" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
     <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[130px]"></div>
@@ -3630,6 +3665,25 @@
           new MutationObserver(check).observe(s, { attributes: true, attributeFilter: ['class'] });
         });
       });
+    })();
+  </script>
+  <script>
+    (function () {
+      function hidePreloader() {
+        const p = document.getElementById('sitePreloader');
+        if (!p || p.dataset.hidden) return;
+        p.dataset.hidden = 'true';
+        p.style.opacity = '0';
+        p.style.pointerEvents = 'none';
+        setTimeout(() => { p.remove(); }, 450);
+      }
+      if (document.readyState === 'complete') {
+        setTimeout(hidePreloader, 200);
+      } else {
+        window.addEventListener('load', () => setTimeout(hidePreloader, 200));
+        // Safe timeout: never leave preloader hanging longer than 1.2s
+        setTimeout(hidePreloader, 1200);
+      }
     })();
   </script>
 </body>
