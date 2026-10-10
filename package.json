@@ -1,0 +1,12 @@
+{
+  "name": "10xrate",
+  "version": "1.0.0",
+  "description": "10xrate Website and Landing Page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
