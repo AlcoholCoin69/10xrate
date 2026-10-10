@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" style="background-color: #08080a; color: #ffffff;">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#08080a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <style>
+    html, body { background-color: #08080a !important; color: #ffffff; }
+  </style>
   <title>10Xrate - Платформа онлайн-казино и спортивных ставок</title>
   
   
@@ -11,11 +17,11 @@
   
   
 
-  <!-- GSAP CDN -->
-  <script src="assets/gsap.min.js"></script>
+  <!-- GSAP CDN (deferred so it never blocks first paint in Safari) -->
+  <script src="assets/gsap.min.js" defer></script>
 
-  <!-- Lucide Icons CDN -->
-  <script src="assets/icons.js"></script>
+  <!-- Lucide Icons CDN (deferred) -->
+  <script src="assets/icons.js" defer></script>
 
   <style>
     * {
@@ -3214,7 +3220,11 @@
   <!-- ========================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      } else {
+        window.addEventListener('load', () => { if (window.lucide) lucide.createIcons(); });
+      }
 
       const state = {
         currentSlide: 1,
