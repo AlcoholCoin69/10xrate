@@ -229,20 +229,46 @@
     /* 2K / QHD Displays (1921px - 2560px) */
     @media (min-width: 1921px) and (min-height: 900px) {
       html {
-        font-size: 19px !important;
+        font-size: 20px !important;
       }
       .slide {
-        max-width: 1400px !important;
+        max-width: 1300px !important;
+      }
+      .slide .glass-card {
+        padding: 1.75rem 1.6rem !important;
+      }
+      .slide .grid {
+        gap: 1.5rem !important;
+        margin-top: 1.75rem !important;
+      }
+      .slide .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0.75rem !important;
+      }
+      .slide h2 {
+        margin-bottom: 0.5rem !important;
       }
     }
 
     /* 4K / UHD Displays (>= 2561px) */
     @media (min-width: 2561px) and (min-height: 1100px) {
       html {
-        font-size: 23px !important;
+        font-size: 26px !important;
       }
       .slide {
-        max-width: 1700px !important;
+        max-width: 1540px !important;
+      }
+      .slide .glass-card {
+        padding: 2.5rem 2.25rem !important;
+      }
+      .slide .grid {
+        gap: 2rem !important;
+        margin-top: 2.25rem !important;
+      }
+      .slide .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 1rem !important;
+      }
+      .slide h2 {
+        margin-bottom: 0.75rem !important;
       }
     }
 
