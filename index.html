@@ -229,46 +229,52 @@
     /* 2K / QHD Displays (1921px - 2560px) */
     @media (min-width: 1921px) and (min-height: 900px) {
       html {
-        font-size: 20px !important;
+        font-size: 21px !important;
       }
       .slide {
-        max-width: 1300px !important;
+        max-width: 1380px !important;
       }
       .slide .glass-card {
-        padding: 1.75rem 1.6rem !important;
+        padding: 2rem 1.75rem !important;
+      }
+      .slide .grid > .glass-card {
+        min-height: 250px !important;
       }
       .slide .grid {
-        gap: 1.5rem !important;
-        margin-top: 1.75rem !important;
+        gap: 1.75rem !important;
+        margin-top: 2rem !important;
       }
       .slide .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
-        margin-top: 0.75rem !important;
+        margin-top: 0.85rem !important;
       }
       .slide h2 {
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.75rem !important;
       }
     }
 
     /* 4K / UHD Displays (>= 2561px) */
     @media (min-width: 2561px) and (min-height: 1100px) {
       html {
-        font-size: 26px !important;
+        font-size: 27px !important;
       }
       .slide {
-        max-width: 1540px !important;
+        max-width: 1680px !important;
       }
       .slide .glass-card {
-        padding: 2.5rem 2.25rem !important;
+        padding: 2.75rem 2.5rem !important;
+      }
+      .slide .grid > .glass-card {
+        min-height: 360px !important;
       }
       .slide .grid {
-        gap: 2rem !important;
-        margin-top: 2.25rem !important;
+        gap: 2.5rem !important;
+        margin-top: 2.75rem !important;
       }
       .slide .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
-        margin-top: 1rem !important;
+        margin-top: 1.25rem !important;
       }
       .slide h2 {
-        margin-bottom: 0.75rem !important;
+        margin-bottom: 1rem !important;
       }
     }
 
