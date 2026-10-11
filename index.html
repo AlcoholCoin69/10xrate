@@ -228,17 +228,21 @@
 
     /* 2K / QHD Displays (1921px - 2560px) */
     @media (min-width: 1921px) and (min-height: 900px) {
+      html {
+        font-size: 19px !important;
+      }
       .slide {
-        max-width: 1440px !important;
-        zoom: 1.22;
+        max-width: 1400px !important;
       }
     }
 
     /* 4K / UHD Displays (>= 2561px) */
-    @media (min-width: 2561px) and (min-height: 1200px) {
+    @media (min-width: 2561px) and (min-height: 1100px) {
+      html {
+        font-size: 23px !important;
+      }
       .slide {
-        max-width: 1850px !important;
-        zoom: 1.55;
+        max-width: 1700px !important;
       }
     }
 
