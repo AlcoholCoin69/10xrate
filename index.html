@@ -226,6 +226,22 @@
       }
     }
 
+    /* 2K / QHD Displays (1921px - 2560px) */
+    @media (min-width: 1921px) and (min-height: 900px) {
+      .slide {
+        max-width: 1440px !important;
+        zoom: 1.22;
+      }
+    }
+
+    /* 4K / UHD Displays (>= 2561px) */
+    @media (min-width: 2561px) and (min-height: 1200px) {
+      .slide {
+        max-width: 1850px !important;
+        zoom: 1.55;
+      }
+    }
+
     /* Compact Landscape Phones & Small Tablets (width 641px..1023px and max-height: 700px) */
     @media (min-width: 641px) and (max-width: 1023px) and (max-height: 700px) {
       .slide {
